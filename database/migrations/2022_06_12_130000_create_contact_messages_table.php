@@ -17,8 +17,17 @@ return new class extends Migration
             $table->bigIncrements('id');
 
             $table->string('name');
-            $table->string('email');
-            $table->string('message');
+            
+            $table->string('email')->nullable();
+            $table->text('steam_profile_url')->nullable()
+            
+            $table->text('subject');
+            $table->text('message');
+            
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('users')->nullOnDelete();
+
+            $table->text('resolution')->nullable();
 
             $table->timestamps();
         });
