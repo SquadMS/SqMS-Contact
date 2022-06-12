@@ -3,7 +3,7 @@
 namespace SquadMS\Contact\Models;
 
 use Illuminate\Database\Eloquent\Model;
-Illuminate\Database\Eloquent\Relations\BelongsTo;
+use minate\Database\Eloquent\Relations\BelongsTo;
 use SquadMS\Foundation\Models\SquadMSUser;
 
 class ContactMessage extends Model
