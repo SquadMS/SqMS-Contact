@@ -1,6 +1,6 @@
 <?php
 
-namespace SquadMS\Rules;
+namespace SquadMS\Contact;
 
 use Illuminate\Console\Scheduling\Schedule;
 use SquadMS\Foundation\Modularity\Contracts\SquadMSModule as SquadMSModuleContract;
