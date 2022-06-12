@@ -21,7 +21,7 @@ class RuleArticle extends Model
     
     function user() : BelongsTo
     {
-        return $this->belongsTo(SquadMSUser::class, 'user_id');
+        return $this->belongsTo(SquadMSUser::class);
     }
     
     function admin() : BelongsTo
