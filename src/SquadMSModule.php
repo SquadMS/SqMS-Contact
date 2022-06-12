@@ -5,7 +5,6 @@ namespace SquadMS\Rules;
 use Illuminate\Console\Scheduling\Schedule;
 use SquadMS\Foundation\Modularity\Contracts\SquadMSModule as SquadMSModuleContract;
 
-
 class SquadMSModule extends SquadMSModuleContract
 {
     public static function getIdentifier(): string
