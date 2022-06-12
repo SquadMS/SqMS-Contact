@@ -24,13 +24,5 @@ class RouteServiceProvider extends ServiceProvider
         ], function () use ($routesPath) {
             $this->loadRoutesFrom($routesPath.'/web.php');
         });
-
-        /* API routes */
-        Route::group([
-            'prefix'     => 'api',
-            'middleware' => 'api',
-        ], function () use ($routesPath) {
-            $this->loadRoutesFrom($routesPath.'/api.php');
-        });
     }
 }
