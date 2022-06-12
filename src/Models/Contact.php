@@ -16,7 +16,8 @@ class RuleArticle extends Model
         'subject',
         'message',
         'resolution',
-        'admin_id'
+        'admin_id',
+        'user_id'
     ];
     
     function user() : BelongsTo
