@@ -20,7 +20,7 @@ return new class extends Migration
             
             $table->string('email')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             
             $table->text('subject');
             $table->text('message');
