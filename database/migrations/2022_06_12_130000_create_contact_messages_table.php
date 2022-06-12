@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('name');
             
             $table->string('email')->nullable();
-            $table->text('steam_profile_url')->nullable()
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
             
             $table->text('subject');
             $table->text('message');
