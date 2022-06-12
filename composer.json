@@ -39,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SquadMS\\Contact\\RulesServiceProvider",
+                "SquadMS\\Contact\\ContactServiceProvider",
                 "SquadMS\\Contact\\Providers\\FilamentServiceProvider",
                 "SquadMS\\Contact\\Providers\\ModulesServiceProvider",
                 "SquadMS\\Contact\\Providers\\PermissionsServiceProvider",
