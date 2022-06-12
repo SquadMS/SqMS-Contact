@@ -1,6 +1,6 @@
 <?php
 
-namespace SquadMS\Rules;
+namespace SquadMS\Contact;
 
 use Illuminate\Support\ServiceProvider;
 
