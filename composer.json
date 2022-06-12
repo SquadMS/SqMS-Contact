@@ -40,6 +40,7 @@
         "laravel": {
             "providers": [
                 "SquadMS\\Contact\\ContactServiceProvider",
+                "SquadMS\\Contact\\Providers\\EloquentServiceProvider.php",
                 "SquadMS\\Contact\\Providers\\FilamentServiceProvider",
                 "SquadMS\\Contact\\Providers\\ModulesServiceProvider",
                 "SquadMS\\Contact\\Providers\\PermissionsServiceProvider",
