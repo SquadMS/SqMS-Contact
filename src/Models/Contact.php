@@ -5,7 +5,7 @@ namespace SquadMS\Contact\Models;
 use Illuminate\Database\Eloquent\Model;
 use SquadMS\Foundation\Models\SquadMSUser;
 
-class RuleArticle extends Model
+class Contact extends Model
 {
     /**
      * The attributes that are mass assignable.
