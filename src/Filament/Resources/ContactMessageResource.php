@@ -52,8 +52,7 @@ class ContactMessageResource extends Resource
     {
         return [
             'index' => Pages\ListContactMessage::route('/'),
-            'create' => Pages\CreateContactMessage::route('/create'),
-            'edit' => Pages\EditContactMessage::route('/{record}/edit'),
+            'view' => Pages\ViewContactMessage::route('/{record}'),
         ];
     }
 }
