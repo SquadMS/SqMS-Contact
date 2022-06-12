@@ -1,0 +1,50 @@
+{
+    "name": "squadms/contact",
+    "description": "The SquadMS Contact Management module.",
+    "keywords": ["laravel", "squad", "squadms", "contact"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Patrick Henninger",
+            "email": "privat@skyraptor.eu",
+            "homepage": "https://skyraptor.eu/"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/events": "^8.0",
+        "illuminate/queue": "^8.0",
+        "illuminate/cache": "^8.0",
+        "nesbot/carbon": "^2.0",
+        "squadms/foundation": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SquadMS\\Contact\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SquadMS\\Contact\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SquadMS\\Contact\\RulesServiceProvider",
+                "SquadMS\\Contact\\Providers\\FilamentServiceProvider",
+                "SquadMS\\Contact\\Providers\\ModulesServiceProvider",
+                "SquadMS\\Contact\\Providers\\PermissionsServiceProvider",
+                "SquadMS\\Contact\\Providers\\RouteServiceProvider"
+            ]
+        }
+    }
+}
