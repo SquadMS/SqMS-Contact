@@ -16,7 +16,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(SendContactMessage $request)
+    public function show()
     {
         return View::make('sqms-contact.contact');
     }
