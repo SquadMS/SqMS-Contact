@@ -8,7 +8,7 @@
 <div class="flex flex-wrap">
     <form method="POST" action="{{ route('contact.send') }}">
         @csrf
-        
+
         <!-- Name -->
         <div>
             <x-sqms-foundation::label :value="__('sqms-contact::contact.form.fields.name.label')" />
@@ -36,7 +36,7 @@
         <div>
             <x-sqms-foundation::label :value="__('sqms-contact::contact.form.fields.message.label')" />
             <textarea name="message" placeholder="{{ __('sqms-contact::contact.form.fields.message.placeholder') }}">{{ old('message') }}</textarea>
-            <x-sqms-foundation::input-error for="subject" />
+            <x-sqms-foundation::input-error for="message" />
         </div>
 
         <x-sqms-foundation::button>{{ __('sqms-contact::contact.form.submit') }}</x-sqms-foundation::button>
