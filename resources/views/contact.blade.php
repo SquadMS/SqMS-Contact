@@ -6,8 +6,9 @@
 
 @section('page-content')
 <div class="flex flex-wrap">
-    <form>
-
+    <form method="POST" action="{{ route('contact.send') }}">
+        @csrf
+        
         <!-- Name -->
         <div>
             <x-sqms-foundation::label :value="__('sqms-contact::contact.form.fields.name.label')" />
