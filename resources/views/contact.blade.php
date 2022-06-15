@@ -1,7 +1,7 @@
 @extends('sqms-foundation::templates.page')
 
 @section('title')
-    {{ __('sqms-contact::pages/contact.heading') }}
+    {{ __('sqms-contact::contact.heading') }}
 @endsection
 
 @section('page-content')
