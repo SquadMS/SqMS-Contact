@@ -5,7 +5,7 @@ use SquadMS\Foundation\Helpers\SquadMSRouteHelper;
 use SquadMS\Contact\Http\Controllers\ContactController;
 
 SquadMSRouteHelper::localized(function() {
-    Route::prefix('contact')->as('contact.')->group(function() {
+    Route::prefix('contact')->name('contact.')->group(function() {
         Route::get('/', [ContactController::class, 'show'])
             ->name('show');
 
