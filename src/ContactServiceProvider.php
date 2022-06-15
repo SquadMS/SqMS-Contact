@@ -28,5 +28,16 @@ class ContactServiceProvider extends ServiceProvider
         
         /* Load Migrations */
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        /* Load Translations */
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'sqms-contact');
+
+        /* Publish Assets */
+        if ($this->app->runningInConsole()) {
+            // Publish assets
+            $this->publishes([
+                __DIR__.'/../public' => public_path('themes/sqms-contact'),
+            ], 'assets');
+        }
     }
 }
