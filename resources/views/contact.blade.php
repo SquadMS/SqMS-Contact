@@ -6,6 +6,10 @@
 
 @section('page-content')
 <div class="flex flex-wrap">
-    <p>TODO</p>
+    <form>
+        <x-sqms-foundation::input type="text" name="subject" />
+
+        <x-sqms-foundation::button>Send</x-sqms-foundation::button>
+    </form>
 </div>
 @endsection
