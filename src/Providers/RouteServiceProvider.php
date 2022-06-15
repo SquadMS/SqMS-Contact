@@ -14,14 +14,16 @@ class RouteServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        /* Routes */
-        $routesPath = __DIR__.'/../../routes';
+        $this->app->booted(function() {
+            /* Routes */
+            $routesPath = __DIR__.'/../../routes';
 
-        /* WEB routes */
-        Route::group([
-            'middleware' => ['web'],
-        ], function () use ($routesPath) {
-            $this->loadRoutesFrom($routesPath.'/web.php');
+            /* WEB routes */
+            Route::group([
+                'middleware' => ['web'],
+            ], function () use ($routesPath) {
+                $this->loadRoutesFrom($routesPath.'/web.php');
+            });
         });
     }
 }
