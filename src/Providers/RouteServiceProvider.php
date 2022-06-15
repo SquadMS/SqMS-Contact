@@ -2,7 +2,6 @@
 
 namespace SquadMS\Contact\Providers;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
