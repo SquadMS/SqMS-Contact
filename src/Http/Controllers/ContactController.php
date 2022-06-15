@@ -18,7 +18,7 @@ class ContactController extends Controller
      */
     public function show()
     {
-        return View::make('sqms-contact.contact');
+        return View::make('sqms-contact::contact');
     }
 
     /**
