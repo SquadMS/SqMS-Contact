@@ -36,14 +36,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SquadMS\\Contact\\ContactServiceProvider",
-                "SquadMS\\Contact\\Providers\\EloquentServiceProvider",
-                "SquadMS\\Contact\\Providers\\FilamentServiceProvider",
-                "SquadMS\\Contact\\Providers\\ModulesServiceProvider",
-                "SquadMS\\Contact\\Providers\\PermissionsServiceProvider",
-                "SquadMS\\Contact\\Providers\\RouteServiceProvider",
-                "SquadMS\\Contact\\Providers\\ViewServiceProvider"
+                "SquadMS\\Contact\\ContactServiceProvider"
             ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "0.0.0/composer-include-files": true
         }
     }
 }

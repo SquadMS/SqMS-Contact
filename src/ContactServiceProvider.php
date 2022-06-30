@@ -2,18 +2,26 @@
 
 namespace SquadMS\Contact;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Config;
+use Spatie\LaravelPackageTools\Package;
+use SquadMS\Contact\Filament\Resources\ContactMessageResource;
+use SquadMS\Foundation\Contracts\SquadMSModuleServiceProvider;
+use SquadMS\Foundation\Facades\SquadMSPermissions;
+use SquadMS\Foundation\Models\SquadMSUser;
 
-class ContactServiceProvider extends ServiceProvider
+class ContactServiceProvider extends SquadMSModuleServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public static string $name = 'sqms-contact';
+
+    protected array $resources = [
+        ContactMessageResource::class,
+    ];
+
+    public function configureModule(Package $package): void
     {
-        //
+        $package->hasAssets()
+                ->hasRoutes(['web']);
     }
 
     /**
@@ -21,23 +29,19 @@ class ContactServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function bootedModule(): void
     {
-        /* Configuration */
-        $this->mergeConfigFrom(__DIR__.'/../config/sqms-contact.php', 'sqms-contact');
-        
-        /* Load Migrations */
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
-        /* Load Translations */
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'sqms-contact');
-
-        /* Publish Assets */
-        if ($this->app->runningInConsole()) {
-            // Publish assets
-            $this->publishes([
-                __DIR__.'/../public' => public_path('themes/sqms-contact'),
-            ], 'assets');
+        /* Permissions */
+        foreach (Config::get('sqms-contact.permissions.definitions', []) as $definition => $displayName) {
+            SquadMSPermissions::define(Config::get('sqms-contact.permissions.module'), $definition, $displayName);
         }
+
+        SquadMSUser::resolveRelationUsing('contactMessages', static function (SquadMSUser $user): HasMany {
+            return $user->hasMany(ContactMessage::class);
+        });
+
+        SquadMSUser::resolveRelationUsing('claimedContactMessages', static function (SquadMSUser $user): HasMany {
+            return $user->hasMany(ContactMessage::class, 'admin_id');
+        });
     }
 }
