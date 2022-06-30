@@ -2,9 +2,8 @@
 
 namespace SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
 
-use SquadMS\Contact\Filament\Resources\ContactMessageResource;
-use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\ViewRecord;
+use SquadMS\Contact\Filament\Resources\ContactMessageResource;
 
 class ViewContactMessage extends ViewRecord
 {

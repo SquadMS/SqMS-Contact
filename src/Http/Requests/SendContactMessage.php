@@ -32,7 +32,7 @@ class SendContactMessage extends FormRequest
             'subject'           => 'required|string|min:3',
             'message'           => 'required|string|min:10',
         ];
-        
+
         if (Config::get('app.env') == 'production') {
             $rules['g-recaptcha-response'] = 'required|captcha';
         }

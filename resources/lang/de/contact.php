@@ -20,7 +20,7 @@ return [
             'message' => [
                 'label' => 'Name',
                 'placeholder' => 'Deine Nachricht an uns',
-            ]
+            ],
         ],
         'submit' => 'Senden',
     ],

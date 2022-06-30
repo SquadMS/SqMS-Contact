@@ -31,7 +31,6 @@ class ContactController extends Controller
         /* Validate request and create message */
         ContactMessage::create($request->validated());
 
-
         /* Show population view as text */
         return Response::back()->withSuccess(Lang::get('sqms-contact.messages.success'));
     }

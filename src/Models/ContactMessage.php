@@ -18,15 +18,15 @@ class ContactMessage extends Model
         'message',
         'resolution',
         'admin_id',
-        'user_id'
+        'user_id',
     ];
-    
-    function user() : BelongsTo
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(SquadMSUser::class);
     }
-    
-    function admin() : BelongsTo
+
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(SquadMSUser::class, 'admin_id');
     }
@@ -34,10 +34,10 @@ class ContactMessage extends Model
     /**
      * Claims the ContactMessage for an Admin.
      *
-     * @param User $user
+     * @param  User  $user
      * @return void
      */
-    function claim(User $user) : void
+    public function claim(User $user): void
     {
         $this->admin()->associate($user);
         $this->save();
@@ -46,10 +46,10 @@ class ContactMessage extends Model
     /**
      * Resolves and sets the resolution for the ContactMessage
      *
-     * @param string $resolution
+     * @param  string  $resolution
      * @return void
      */
-    function resolve(?string $resolution = '-') : void
+    public function resolve(?string $resolution = '-'): void
     {
         $this->update([
             'resolution' => $resolution,

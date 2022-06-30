@@ -2,19 +2,18 @@
 
 namespace SquadMS\Contact\Filament\Resources;
 
-use SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
-use SquadMS\Contact\Models\ContactMessage;
-use Filament\Forms;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Resources\Concerns\Translatable;
+use SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
+use SquadMS\Contact\Models\ContactMessage;
 
 class ContactMessageResource extends Resource
 {
     use Translatable;
-    
+
     protected static ?string $navigationGroup = 'Contact Management';
 
     protected static ?string $model = ContactMessage::class;
@@ -40,14 +39,14 @@ class ContactMessageResource extends Resource
                 //
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
