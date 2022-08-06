@@ -46,7 +46,7 @@ class ContactServiceProvider extends SquadMSModuleServiceProvider
         });
 
         /* Steam profile URL validator */
-        Validator::extend('steam_profile_url', function ($attribute, $value, $parameters, $validator) {
+        Validator::extend('steam_account_url', function ($attribute, $value, $parameters, $validator) {
             // https://stackoverflow.com/questions/37016532/check-if-valid-steam-profile-url/63426574#63426574
             return preg_match('/^(?:https?:\/\/)?steamcommunity\.com\/(?:profiles\/[0-9]{17}|id\/[a-zA-Z0-9].*)$/', $value) === 1;
         });
