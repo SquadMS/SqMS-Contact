@@ -10,7 +10,7 @@
                 <x-sqms-foundation::input-error for="name" />
             </div>
 
-            @auth('admin')
+            @auth
             <!-- Steam-Profile -->
             <div>
                 <x-sqms-foundation::label :value="__('sqms-contact::contact.form.fields.steam_account_url.label')" />
