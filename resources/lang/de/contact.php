@@ -9,6 +9,9 @@ return [
                 'label' => 'Name',
                 'placeholder' => 'Dein Spielername',
             ],
+            'steam_account_url' => [
+                'label' => 'Steam-Profil',
+            ],
             'email' => [
                 'label' => 'Name',
                 'placeholder' => 'Deine E-Mail Adresse',

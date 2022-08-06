@@ -10,6 +10,15 @@
                 <x-sqms-foundation::input-error for="name" />
             </div>
 
+            @auth('admin')
+            <!-- Steam-Profile -->
+            <div>
+                <x-sqms-foundation::label :value="__('sqms-contact::contact.form.fields.steam_account_url.label')" />
+                <x-sqms-foundation::input type="text" name="steam_account_url" :placeholder="__('sqms-contact::contact.form.fields.steam_account_url.placeholder')" :value="\Auth::user()->steam_account_url" readonly/>
+                <x-sqms-foundation::input-error for="steam_account_url" />
+            </div>
+            @endauth
+
             @guest
             <!-- E-Mail -->
             <div>

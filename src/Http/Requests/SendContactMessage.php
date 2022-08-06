@@ -3,6 +3,7 @@
 namespace SquadMS\Contact\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
 class SendContactMessage extends FormRequest
@@ -27,11 +28,15 @@ class SendContactMessage extends FormRequest
     {
         $rules = [
             'name'              => 'required|string|min:3',
-            'steam_profile_url' => 'required|url|steam_profile_url',
-            'email'             => 'required|email',
             'subject'           => 'required|string|min:3',
             'message'           => 'required|string|min:10',
         ];
+
+        if (Auth::check()) {
+            $rules['steam_account_url'] = 'required|url|steam_account_url';
+        } else {
+            $rules['email'] = 'required|email';
+        }
 
         if (Config::get('app.env') == 'production') {
             $rules['g-recaptcha-response'] = 'required|captcha';
