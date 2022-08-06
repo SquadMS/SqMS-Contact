@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use SquadMS\Contact\Http\Controllers\ContactController;
 use SquadMS\Foundation\Helpers\SquadMSRouteHelper;
