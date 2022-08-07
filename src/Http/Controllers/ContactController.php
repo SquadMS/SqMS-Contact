@@ -4,7 +4,7 @@ namespace SquadMS\Contact\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use SquadMS\Contact\Http\Requests\SendContactMessage;
 use SquadMS\Contact\Models\ContactMessage;
@@ -32,6 +32,6 @@ class ContactController extends Controller
         ContactMessage::create($request->validated());
 
         /* Show population view as text */
-        return Response::back()->withSuccess(Lang::get('sqms-contact.messages.success'));
+        return Redirect::back()->withSuccess(Lang::get('sqms-contact.messages.success'));
     }
 }
