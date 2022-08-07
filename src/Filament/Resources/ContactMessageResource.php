@@ -45,7 +45,8 @@ class ContactMessageResource extends Resource
                                 Forms\Components\Textarea::make('message')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
-                            ]),
+                            ])
+                            ->columnSpan(1),
                         Forms\Components\Section::make('Admin')
                             ->schema([
                                 Forms\Components\Select::make('user')
@@ -56,6 +57,7 @@ class ContactMessageResource extends Resource
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
                             ])
+                            ->columnSpan(1),
                     ])
             ]);
     }
