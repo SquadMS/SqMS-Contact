@@ -8,6 +8,8 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Forms;
+use Filament\Forms\Components\Actions\Action;
+use Illuminate\Support\Facades\Auth;
 use SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
 use SquadMS\Contact\Models\ContactMessage;
 
@@ -35,7 +37,8 @@ class ContactMessageResource extends Resource
                                 Forms\Components\TextInput::make('email')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
-                                Forms\Components\TextInput::make('user')
+                                Forms\Components\Select::make('user')
+                                    ->placeholder('')
                                     ->relationship('user', 'name')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
@@ -49,7 +52,8 @@ class ContactMessageResource extends Resource
                             ->columnSpan(1),
                         Forms\Components\Section::make('Admin')
                             ->schema([
-                                Forms\Components\TextInput::make('user')
+                                Forms\Components\Select::make('user')
+                                    ->placeholder('')
                                     ->relationship('user', 'name')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
@@ -71,6 +75,17 @@ class ContactMessageResource extends Resource
             ])
             ->filters([
                 //
+            ])
+            ->actions([
+                Action::make('resolve')
+                    ->form([
+                        Forms\Components\Textarea::make('resolution')
+                    ])
+                    ->action(function (ContactMessage $record, array $data): void {
+                        $record->admin()->associate(Auth::user());
+                        $record->resolution = $data['resolution'];
+                        $record->save();
+                    })
             ]);
     }
 
