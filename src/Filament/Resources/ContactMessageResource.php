@@ -7,6 +7,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Forms;
 use SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
 use SquadMS\Contact\Models\ContactMessage;
 
@@ -24,7 +25,38 @@ class ContactMessageResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Grid::make()
+                    ->schema([
+                        Forms\Components\Section::make('Message')
+                            ->schema([
+                                Forms\Components\TextInput::make('name')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                                Forms\Components\TextInput::make('email')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                                Forms\Components\Select::make('user')
+                                    ->relationship('user', 'name')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                                Forms\Components\TextInput::make('subject')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                                Forms\Components\Textarea::make('message')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                            ]),
+                        Forms\Components\Section::make('Admin')
+                            ->schema([
+                                Forms\Components\Select::make('user')
+                                    ->relationship('user', 'name')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                                Forms\Components\Textarea::make('resolution')
+                                    ->disabled()         // Disable editing
+                                    ->dehydrated(false), // Disable saving
+                            ])
+                    ])
             ]);
     }
 
