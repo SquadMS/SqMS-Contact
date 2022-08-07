@@ -86,6 +86,7 @@ class ContactMessageResource extends Resource
                         $record->resolution = $data['resolution'];
                         $record->save();
                     })
+                    ->hidden(fn (ContactMessage $record) => !$record->admin)
             ]);
     }
 
