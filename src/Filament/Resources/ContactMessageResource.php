@@ -2,12 +2,12 @@
 
 namespace SquadMS\Contact\Filament\Resources;
 
+use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Forms;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ViewAction;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +63,7 @@ class ContactMessageResource extends Resource
                                     ->dehydrated(false), // Disable saving
                             ])
                             ->columnSpan(1),
-                    ])
+                    ]),
             ]);
     }
 
@@ -80,7 +80,7 @@ class ContactMessageResource extends Resource
             ->actions([
                 Action::make('Resolve')
                     ->form([
-                        Forms\Components\Textarea::make('resolution')
+                        Forms\Components\Textarea::make('resolution'),
                     ])
                     ->modalHeading('Claim & resolve the message')
                     ->modalButton('Resolve')
@@ -90,7 +90,7 @@ class ContactMessageResource extends Resource
                         $record->save();
                     })
                     ->hidden(fn (ContactMessage $record) => $record->admin),
-                ViewAction::make()
+                ViewAction::make(),
             ]);
     }
 
