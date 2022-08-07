@@ -8,7 +8,8 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Forms;
-use Filament\Forms\Components\Actions\Action;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ViewAction;
 use Illuminate\Support\Facades\Auth;
 use SquadMS\Contact\Filament\Resources\ContactMessageResource\Pages;
 use SquadMS\Contact\Models\ContactMessage;
@@ -77,16 +78,19 @@ class ContactMessageResource extends Resource
                 //
             ])
             ->actions([
-                Action::make('resolve')
+                Action::make('Resolve')
                     ->form([
                         Forms\Components\Textarea::make('resolution')
                     ])
+                    ->modalHeading('Claim & resolve the message')
+                    ->modalButton('Resolve')
                     ->action(function (ContactMessage $record, array $data): void {
                         $record->admin()->associate(Auth::user());
                         $record->resolution = $data['resolution'];
                         $record->save();
                     })
-                    ->hidden(fn (ContactMessage $record) => !$record->admin)
+                    ->hidden(fn (ContactMessage $record) => $record->admin),
+                ViewAction::make()
             ]);
     }
 
