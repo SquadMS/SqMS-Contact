@@ -35,7 +35,7 @@ class ContactMessageResource extends Resource
                                 Forms\Components\TextInput::make('email')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
-                                Forms\Components\Select::make('user')
+                                Forms\Components\TextInput::make('user')
                                     ->relationship('user', 'name')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
@@ -49,7 +49,7 @@ class ContactMessageResource extends Resource
                             ->columnSpan(1),
                         Forms\Components\Section::make('Admin')
                             ->schema([
-                                Forms\Components\Select::make('user')
+                                Forms\Components\TextInput::make('user')
                                     ->relationship('user', 'name')
                                     ->disabled()         // Disable editing
                                     ->dehydrated(false), // Disable saving
